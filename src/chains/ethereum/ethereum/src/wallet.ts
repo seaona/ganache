@@ -14,7 +14,7 @@ import {
   WEI
 } from "@ganache/utils";
 import { privateToAddress } from "ethereumjs-util";
-import secp256k1 from "@ganache/secp256k1";
+import secp256k1, { SECP256K1_MAX_PRIVATE_KEY } from "@ganache/secp256k1";
 import { mnemonicToSeedSync } from "bip39";
 import { alea } from "seedrandom";
 import crypto from "crypto";
@@ -24,7 +24,6 @@ import { EthereumInternalOptions } from "@ganache/ethereum-options";
 import { Address } from "@ganache/ethereum-address";
 
 const TWELVE_255s = Buffer.allocUnsafe(12).fill(255);
-const SECP256K1_MAX_PRIVATE_KEY = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141n;
 
 //#region Constants
 const SCRYPT_PARAMS = {
