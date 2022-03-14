@@ -662,7 +662,7 @@ export default class Wallet {
       // will. There are obviously many chances for a false positive, but the
       // next condition in the `while` loop will catch those.
       if (first12.compare(TWELVE_255s) === 0) {
-        while (BigInt(fakePrivateKey.toString()) >= SECP256K1_MAX_PRIVATE_KEY) {
+        while (BigInt(`0x${fakePrivateKey.toString("hex")}`) >= SECP256K1_MAX_PRIVATE_KEY) {
           // keccak returns a 32 byte hash of the input data, which is the exact
           // length we need for a private key.
           // note: if keccak can return it's own input as it's output, then this
