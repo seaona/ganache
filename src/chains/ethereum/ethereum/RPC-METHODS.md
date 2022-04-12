@@ -197,6 +197,22 @@ Generates and returns an estimate of how much gas is necessary to allow the tran
 
 ---
 
+#### eth_feeHistory
+
+Returns the fee history for the returned block range. This can be a subsection of the requested range if not all blocks are available.
+
+##### Arguments
+
+- `blockCount` : Requested range of blocks. Clients will return less than the requested range if not all blocks are available.
+- `newestBlock: QUANTITY` : Highest block of the requested range.
+- `rewardPercentiles` : A monotonically increasing list of percentile values. For each block in the requested range, the transactions will be sorted in ascending order by effective tip per gas and the coresponding effective tip for the percentile will be determined, accounting for gas consumed.
+
+##### Returns
+
+`Promise<object>` : The fee history reuslt for that range of blocks.
+
+---
+
 #### eth_gasPrice
 
 Returns the current price per gas in wei.

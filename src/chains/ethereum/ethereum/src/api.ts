@@ -962,6 +962,37 @@ export default class EthereumApi implements Api {
   }
 
   /**
+   *TODO: add description
+  
+   */
+   @assertArgLength(3,3)
+   async eth_feeHistory(
+     blockCount: QUANTITY,
+     newestBlock: QUANTITY,
+     rewardPercentiles: QUANTITY,
+   )
+      {
+        let response = {}
+        // baseFeePerGas - current block
+        const block = await this.#blockchain.blocks
+        .get(newestBlock)
+        let bfpg = block.toJSON().baseFeePerGas
+        response["baseFeePerGas"] = bfpg;
+
+        // oldestBlock
+        let oldestBlock = block.header.number
+        response["oldestBlock"] = oldestBlock;
+
+        // gasUsedRatio
+
+        // reward
+
+        
+        return response;
+     
+   }
+
+  /**
    * Returns the current ethereum protocol version.
    * @returns The current ethereum protocol version.
    * @example
